@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Container from '../Common/Container'
 import Dotshape from '../../assets/leadingAbout/dot_shapes.png'
 import Sofaimage1 from '../../assets/leadingAbout/interior-with-sofa-3d-illustration.png'
@@ -8,8 +8,33 @@ import Icon1 from "../../assets/leadingAbout/icon1.png"
 import Icon2 from "../../assets/leadingAbout/icon2.png"
 import Icon3 from "../../assets/leadingAbout/icon3.png"
 import Icon4 from "../../assets/leadingAbout/icon4.png"
+
+const leadServices = [
+    {
+        id:1,
+        icon:Icon1,
+        text:"Smart Home Design"
+    },
+    {
+        id:2,
+        icon:Icon2,
+        text:"Beautiful Scene Around"
+    },
+    {
+        id:3,
+        icon:Icon4,
+        text:"Exceptional Lifestyle"
+    },
+    {
+        id:4,
+        icon:Icon3,
+        text:"Complete 24/7 Security"
+    },
+   
+]
 const Leading = () => {
     const ref = useRef(null)
+    const [services,setServices] = useState(leadServices)
     useEffect(()=>{
         const observer = new IntersectionObserver(([entry])=>{
             if(!ref.current) return;
@@ -45,28 +70,19 @@ const Leading = () => {
 
         <div className='font-nunito  flex items-start justify-center flex-col space-y-6'>
          <p className='text-[#FF5A3C] text-3xs font-bold leading-[100%] bg-red-200 pl-7 pr-4 pt-1 pb-1 rounded-xl inline-block'>About Us</p>
-         <h2 className='font-poppins font-bold text-5xl text-black leading-[100%]'>The Leading Real Estate 
+         <h2 className='font-poppins font-bold text-5xl text-black leading-[100%] line-clamp-6'>The Leading Real Estate 
             Rental Marketplace</h2>
             <p className='text-[#5C727D] font-normal text-[16px] leading-[100%]'>Over 39,000 people work for us in more than 70 countries all over the
             This breadth of global coverage, combined with specialist services</p>
 
             <div className='grid grid-cols-2 space-y-3'>
-                <div className='flex items-center justify-start gap-x-2'>
-                    <img className='p-3  rounded-full bg-[#FF5A3C]/7 object-cover shadow-sm' src={Icon1}/>
-                    <span className='font-bold text-[16px] leading-[100%]'>Smart Home Design</span>
-                </div>
-                <div className='flex items-center justify-start gap-x-2'>
-                    <img className='p-3  rounded-full bg-[#FF5A3C]/7 object-cover shadow-sm' src={Icon2}/>
-                    <span className='font-bold text-[16px] leading-[100%]'>Beautiful Scene Around</span>
-                </div>
-                <div className='flex items-center justify-start gap-x-2 z-0'>
-                    <img className='p-3  rounded-full bg-[#FF5A3C] object-cover shadow-sm z-50' src={Icon4}/>
-                    <span className='font-bold text-[16px] leading-[100%]'>Exceptional Lifestyle</span>
-                </div>
-                <div className='flex items-center justify-start gap-x-2'>
-                    <img className='p-3  rounded-full bg-[#FF5A3C]/7 object-cover shadow-sm text-white' src={Icon3}/>
-                    <span className='font-bold text-[16px] leading-[100%]'>Complete 24/7 Security</span>
-                </div>
+                {
+                    services.map((service)=>(<div key={service.id} className='flex items-center justify-start gap-x-2'>
+                    <img className={` p-3  rounded-full ${service.id === 3 ? 'bg-[#FF5A3C]':'bg-[#FF5A3C]/7'} object-cover shadow-sm `} src={service.icon}/>
+                    <span className='font-bold text-[16px] leading-[100%]'>{service.text}</span>
+                </div>))
+                }
+                
             </div>
             <div>
                 <blockquote className='text-[#5C727D] font-normal text-[16px] leading-[100%] pt-4 pl-4 pb-4 pr-[100px] bg-[#FF5A3C]/7 border-l-4  border-[#FF5A3C]'>Enimad minim veniam quis nostrud exercitation<br></br>llamco laboris. Lorem ipsum dolor sit amet"</blockquote>
