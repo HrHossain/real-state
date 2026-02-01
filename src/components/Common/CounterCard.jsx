@@ -27,7 +27,7 @@ const CounterCard = ({ icon: Icon, number, desc, index }) => {
   return (
     <div
       ref={countRef}
-      className={`${bgColors[index % 4]} rounded-2xl shadow-xl p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl divide-x-2`}
+      className="*:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl divide-x-2"
       style={{
         animationDelay: `${index * 100}ms`,
         animation: 'fadeInUp 0.6s ease-out forwards'

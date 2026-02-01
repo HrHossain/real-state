@@ -49,7 +49,6 @@ const Leading = () => {
         return ()=>observer.disconnect()
     },[])
   return (
-    
     <section className='bg-white pt-[400px] py-[180px] sm:py-[180px] z-0'>
         <Container>
         <div className='grid grid-cols-1 md:grid-cols-2 px-2 gap-y-[3rem] sm:gap-x-5 sm:px-0'>
@@ -70,7 +69,7 @@ const Leading = () => {
 
         <div className='font-nunito  flex items-start justify-center flex-col space-y-6'>
          <p className='text-[#FF5A3C] text-3xs font-bold leading-[100%] bg-red-200 pl-7 pr-4 pt-1 pb-1 rounded-xl inline-block'>About Us</p>
-         <h2 className='font-poppins font-bold text-5xl text-black leading-[100%] line-clamp-6'>The Leading Real Estate 
+         <h2 className='font-poppins font-bold text-5xl text-black leading-relaxed '>The Leading Real Estate 
             Rental Marketplace</h2>
             <p className='text-[#5C727D] font-normal text-[16px] leading-[100%]'>Over 39,000 people work for us in more than 70 countries all over the
             This breadth of global coverage, combined with specialist services</p>

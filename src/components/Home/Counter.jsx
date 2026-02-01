@@ -34,7 +34,7 @@ const counter = [
 ]
 const Counter = () => {
   return (
-    <section className='bg-[#F6F5FC]/76'>
+    <section className='bg-[#F6F5FC]/76 md:py-[100px]'>
         <Container>
               <div className="">
       <style>{`
