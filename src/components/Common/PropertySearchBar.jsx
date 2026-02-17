@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { IoChevronDownOutline } from "react-icons/io5";
 import { PiSliders } from "react-icons/pi";
+import useFetch from '../../hooks/useFetch';
 const  PropertySearchBar = () => {
+  const {data:division,loading,error} = useFetch('https://bdapi.vercel.app/api/v.1/division')
   const [openDropdown, setOpenDropdown] = useState(null);
   const [selectedArea, setSelectedArea] = useState('Choose Area');
   const [selectedStatus, setSelectedStatus] = useState('Property Status');
   const [selectedType, setSelectedType] = useState('Property Type');
 
-  const areas = ['Dhaka', 'Chittagong', 'Sylhet', 'Rajshahi', 'Khulna', 'Barisal'];
+  const areas = division.data
   const statuses = ['For Sale', 'For Rent', 'Sold', 'Pending'];
   const types = ['Apartment', 'House', 'Villa', 'Condo', 'Land', 'Commercial'];
 
@@ -23,6 +25,7 @@ const  PropertySearchBar = () => {
   };
 
   const Dropdown = ({ label, options, selected, dropdownKey,ariaLabel }) => (
+
     <div className="relative flex-1">
       <button
         type='button'
@@ -64,14 +67,14 @@ const  PropertySearchBar = () => {
                 <li key={index} role="option" aria-selected={selected === option}>
                   <button
                   type="button"
-                  onClick={() => handleSelect(dropdownKey, option)}
+                  onClick={() => handleSelect(dropdownKey, option.name)}
                   className={`w-full font font-nunito px-4 py-2.5 text-left text-sm transition-colors duration-200 ${
                     selected === option
                       ? 'bg-orange-50 text-orange-500 font-medium'
                       : 'text-gray-700 hover:bg-gray-50 hover:text-orange-500'
                   }`}
                 >
-                  {option}
+                  {option.name}
                 </button>
                 </li>
               ))}
@@ -81,7 +84,12 @@ const  PropertySearchBar = () => {
       )}
     </div>
   );
-
+ if(loading){
+  return <p>Data loading...</p>
+ }
+ if(error){
+  return <p>{error}</p>
+ }
   return (
     
       <section 

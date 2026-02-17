@@ -47,7 +47,7 @@ const socialLinks = [
 
 const TopBar = () => {
   return (
-    <section className="bg-[#0A2C3D] ">
+    <section className="bg-[#0A2C3D] sticky top-0 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-row  justify-between lg:items-center  gap-3 lg:gap-0 py-2 sm:py-0">
           

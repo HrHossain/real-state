@@ -10,7 +10,8 @@ import PropertySearchBar from '../Common/PropertySearchBar';
 
 const Banner = () => {
   return (
-    <section className='bg-[#F2F6F7] relative  min-h-screen'>
+    
+    <section className='bg-[#F2F6F7]  relative  min-h-screen'>
       {/* Background Shape - Hidden on mobile */}
       <img 
         src={Shape} 
@@ -117,6 +118,7 @@ const Banner = () => {
         
       </div>
     </section>
+   
   );
 };
 
